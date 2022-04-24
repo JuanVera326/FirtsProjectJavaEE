@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Formulario</title>
+</head>
+<body>
+<f:view>
+	<h:form>
+	<h2>Formulario de Registro</h2>
+		<hr/>
+		<h:panelGrid>
+			<h:outputText value="Nombre" for="nombre"/>
+		<h:inputText value="#{personaBean.nombre }" id="nombre" style="width: 350px;"/>
+		<h:outputText value="Edad" for="edad"/>
+		<h:inputText value="#{personaBean.edad }" id="edad" style="width: 350px;"/>
+		<h:outputText value="Descripcion" for="descripcion"/>
+		<h:inputText value="#{personaBean.descripcion }" id="descripcion" style="width: 350px; height: 77px;"/>
+		
+		<h:outputLabel value="Dia actual" for="dia"/>
+		
+			<h:selectOneMenu value="#{personaBean.dia }" style="width: 350px;" id="dia">
+				<f:selectItem itemValue="Lunes" itemLabel="Lunes"/>
+				<f:selectItem itemValue="Martes" itemLabel="Martes"/>
+				<f:selectItem itemValue="Miercoles" itemLabel="Miercoles"/>
+				<f:selectItem itemValue="Jueves" itemLabel="Jueves"/>
+				<f:selectItem itemValue="Viernes" itemLabel="Viernes"/>
+				<f:selectItem itemValue="Sabado" itemLabel="Sabado"/>
+				<f:selectItem itemValue="Domingo" itemLabel="Domingo"/>
+			</h:selectOneMenu>
+			
+		<h:outputLabel value="Genero" for="genero"/>
+		
+			<h:selectOneRadio value="#{personaBean.genero }" style="width: 350px;" id="genero">
+				<f:selectItem itemValue="Masculino" itemLabel="Masculino"/>
+				<f:selectItem itemValue="Femenino" itemLabel="Femenino"/>
+			</h:selectOneRadio>
+		<h:outputLabel value="Idioma" for="idioma"/>
+			<h:selectManyCheckbox value="#{personaBean.idioma }" style="width: 350px;" id="idioma" layout="pageDirection">
+				<f:selectItem itemValue="Español" itemLabel="Español"/>
+				<f:selectItem itemValue="Ingles" itemLabel="Ingles"/>
+				<f:selectItem itemValue="Frances" itemLabel="Frances"/>
+				<f:selectItem itemValue="Aleman" itemLabel="Aleman"/>
+			</h:selectManyCheckbox>
+		
+		<h:outputLabel value="Profesion" for="profesion"/>	
+			<h:selectManyListbox value="#{personaBean.profesionSeleccionada}" style="width: 350px;" id="profesion">
+				<f:selectItems value="#{personaBean.profesionList}"></f:selectItems>
+			</h:selectManyListbox>
+		<br/>
+		<h:commandButton value="Enviar" action="datos" style="width: 280px"/>
+		</h:panelGrid>
+	</h:form>
+</f:view>
+</body>
+</html>
